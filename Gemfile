@@ -1,9 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'jekyll'
-
-group :jekyll_plugins do
-  gem "jekyll-sitemap"
-  gem "jekyll-paginate"
-  gem "jemoji"
-end
+gem "jekyll", "~> 4.0"
+gem "jekyll-paginate"
+gem "jekyll-gist"
+gem 'jekyll-feed'
+gem "json"
+gem "rouge"
+gem 'jekyll-compose', group: [:jekyll_plugins]
