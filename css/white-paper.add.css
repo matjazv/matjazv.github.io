@@ -120,7 +120,7 @@ ul.nav li {
 @media only screen and (max-width: 520px) {
   ul.nav {
     position: relative;
-    padding-top: 40px;
+    padding-top: 8px;
   }
   ul.nav li {
     margin: 0 4px;
@@ -165,7 +165,7 @@ ul.nav li.logo a {
 ------------------------------------------------------------------------------*/
 
 .listing {
-  margin-top: 40px;
+  margin-top: 8px;
 }
 
 .listing .post {
