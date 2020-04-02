@@ -1,35 +1,40 @@
----
-layout: default
----
-<h2 style="margin-bottom: -20px;">{{ page.title }}</h2>
-<p class="post-date">{{ page.date | date_to_string }}</p>
+<!doctype html>
+<meta charset="utf-8">
 
-<div class="post">
+<title>{{ page.title }}</title>
+<base href="/">
+<link rel=stylesheet href="{{ '/css/main.css' | relative_url }}">
+<link rel=canonical href="{{ site.url }}{{ page.url }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ page.description }}, Author: Matjaz Verbole">
+
+<article class="h-entry">
+<header>
+<h1 class="p-name">{{ page.title }}</h1>
+<address class="p-author h-card vcard">
+By <a rel=author class="p-name u-url fn url" href="{{ site.url }}">Matjaz Verbole</a> &lt;<a class="u-email email" href="mailto:{{ site.email }}">{{ site.email }}</a>&gt;
+</address>
+<p><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+</header>
+
+<div class="e-content">
+
 {{ content }}
+
 </div>
 
-<a class="twitter-share-button"
-   href="https://twitter.com/intent/tweet?text={{page.title}}"
-   data-hashtags="{{ page.tags | join: ', ' }}"
-   data-via="{{ site.owner.twitter_username }}"
-   data-size="large">Tweet</a>
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
-{% if site.disqus_shortname %}
-{% include disqus_comments.html %}
+<footer>
+{% if page.tags.first != null %}
+  Tags:
+  {% for tag in page.tags %}
+    {% if forloop.last %}
+        <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>
+    {% else %}
+        <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>,
+    {% endif %}
+  {% endfor %}
+   &bull;
 {% endif %}
+Link: <a class="u-uid u-url" href="{{ site.url }}{{ page.url }}">{{ site.url }}{{ page.url }}</a>
+</footer>
+</article>

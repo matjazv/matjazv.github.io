@@ -1,0 +1,109 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<title>The Advisory Boar</title>
+<base href="/">
+<link rel=stylesheet href="{{ '/css/main.css' | relative_url }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+article h2 { font-size: 20px; }
+article > h2 { font-size: 1em; font-weight: bolder }
+footer h2 { font-size: 1em; font-weight: bolder; }
+</style>
+
+<div class="h-feed">
+<header>
+<h1 class="p-name">The Advisory Boar</h1>
+<address class="p-author h-card vcard">
+By <a rel=author class="p-name u-url fn url" href="{{ site.url }}">Matjaz Verbole</a> &lt;<a class="u-email email" href="mailto:{{ site.email }}">{{ site.email }}</a>&gt;
+</address>
+</header>
+
+<!-- This is only if tag-name is present -->
+{% for post in site.posts %}
+    {% if post.tags contains page.tag-name %}
+      <article class="h-entry">
+	  <header>
+	  <h2 class="p-name"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
+	  <p><time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+	  </header>
+	  <div class="e-content">
+		{% assign wordCount = post.content | number_of_words %}
+		{% if wordCount > 300 %}
+			{{ post.content | truncatewords:300 }}
+			<p><a href="{{ site.url }}{{ post.url }}">Read more&hellip;</a>
+		{% else %}
+			{{ post.content }}
+		{% endif %}
+	  </div>
+	  <footer>
+		{% if post.tags.first != null %}
+		Tags:
+		{% for tag in post.tags %}
+		  {% if forloop.last %}
+			  <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>
+		  {% else %}
+			  <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>,
+		  {% endif %}
+		{% endfor %}
+		 &bull;
+		{% endif %}
+		Link: <a class="u-uid u-url" href="{{ site.url }}{{ post.url }}">{{ site.url | replace: "http://", "" | replace: "https://", "" }}{{ post.url }}</a>
+	  </footer>
+	  </article>
+    {% endif %}
+{% endfor %}
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  <article class="h-entry">
+  <header>
+  <h2 class="p-name"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
+  <p><time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+  </header>
+  <div class="e-content">
+    {% assign wordCount = post.content | number_of_words %}
+	{% if wordCount > 300 %}
+        {{ post.content | truncatewords:300 }}
+	    <p><a href="{{ site.url }}{{ post.url }}">Read more&hellip;</a>
+    {% else %}
+        {{ post.content }}
+    {% endif %}
+  </div>
+  <footer>
+    {% if post.tags.first != null %}
+    Tags:
+    {% for tag in post.tags %}
+      {% if forloop.last %}
+          <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>
+      {% else %}
+          <a class="p-category" href="/etc/{{ tag }}">{{ tag }}</a>,
+      {% endif %}
+    {% endfor %}
+     &bull;
+    {% endif %}
+    Link: <a class="u-uid u-url" href="{{ site.url }}{{ post.url }}">{{ site.url | replace: "http://", "" | replace: "https://", "" }}{{ post.url }}</a>
+  </footer>
+  </article>
+{% endfor %}
+
+{% if paginator.next_page %}
+<footer>
+<h2>Older posts</h2>
+<ul> 
+ {% assign next1 = paginator.page | times: site.paginate | plus: 1 %}
+ {% assign next2 = paginator.page | times: site.paginate | plus: 2 %}
+ {% assign next3 = paginator.page | times: site.paginate | plus: 3 %}
+ {% assign next4 = paginator.page | times: site.paginate | plus: 4 %}
+ {% for post in site.posts %}
+   {% if forloop.index == next1 or forloop.index == next2 or forloop.index == next3 or forloop.index == next4 %}
+     <li>{{ post.date | date: "%Y-%m-%d" }} <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+   {% endif %}
+ {% endfor %}
+ <!-- Pagination links -->
+ <li><a href="{{ paginator.next_page_path }}">{{paginator.page | times: site.paginate | minus: paginator.total_posts | abs}} more posts</a> 
+</ul>
+</footer>
+{% endif %}
+</div>

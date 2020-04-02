@@ -1,0 +1,4 @@
+---
+layout: txt
+permalink: /txt
+---
