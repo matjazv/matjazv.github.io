@@ -35,6 +35,6 @@ By <a rel=author class="p-name u-url fn url" href="{{ site.url }}">Matjaz Verbol
   {% endfor %}
    &bull;
 {% endif %}
-Link: <a class="u-uid u-url" href="{{ site.url }}{{ page.url }}">{{ site.url }}{{ page.url }}</a>
+Link: <a class="u-uid u-url" href="{{ site.url }}{{ page.url }}">{{ site.url | replace: "http://", "" | replace: "https://", "" }}{{ page.url }}</a>
 </footer>
 </article>
