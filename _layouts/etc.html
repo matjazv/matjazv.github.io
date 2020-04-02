@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset="utf-8">
 
-<title>My journal</title>
+<title>{{ page.title }}</title>
 <base href="/">
 <link rel=stylesheet href="{{ '/css/main.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@ footer h2 { font-size: 1em; font-weight: bolder; }
 
 <div class="h-feed">
 <header>
-<h1 class="p-name">My journal</h1>
+<h1 class="p-name">{{ page.title }}</h1>
 <address class="p-author h-card vcard">
 By <a rel=author class="p-name u-url fn url" href="{{ site.url }}">Matjaz Verbole</a> &lt;<a class="u-email email" href="mailto:{{ site.email }}">{{ site.email }}</a>&gt;
 </address>
