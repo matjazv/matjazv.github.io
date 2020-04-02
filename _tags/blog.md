@@ -1,5 +1,5 @@
 ---
 layout: etc
-title: The Advisory Boar
+title: My Journal
 tag-name: blog
 ---

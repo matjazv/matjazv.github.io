@@ -11,6 +11,6 @@ end
 
 def generate_tag_file(tag)
   File.open("_tags/#{tag}.md", "wb") do |file|
-    file << "---\nlayout: etc\ntitle: The Advisory Boar\ntag-name: #{tag}\n---\n"
+    file << "---\nlayout: etc\ntitle: My Journal\ntag-name: #{tag}\n---\n"
   end
 end
