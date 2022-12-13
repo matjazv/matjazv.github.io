@@ -7,4 +7,4 @@ tags: blog
 ---
 
 <p>
-Hi, welcome to my new blog. Content is still under constraction.
+Hi, welcome to my new blog. Content is still under construction.
