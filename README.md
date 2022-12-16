@@ -1,2 +1,2 @@
 # matjazv.github.io
-Matjaz Verbole - Technical Blog
+Matjaž Verbole - Technical Blog

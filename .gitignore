@@ -1,35 +1,29 @@
-_site
-.sass-cache
-.jekyll-metadata
-.jekyll-cache/
-yarn.lock
-Gemfile.lock
-package-lock.json
-node_modules/
+/hugo
+docs/public*
+/.idea
+.vscode/*
+hugo.exe
+*.test
+*.prof
+nohup.out
+cover.out
+*.swp
+*.swo
+.DS_Store
+*~
+vendor/*/
+*.bench
+*.debug
+coverage*.out
 
-### macOS ###
-*.DS_Store
-.AppleDouble
-.LSOverride
+dock.sh
 
-# Icon must end with two \r
-Icon
+GoBuilds
+dist
 
-# Thumbnails
-._*
+hugolib/hugo_stats.json
+resources/sunset.jpg
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+vendor
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+.hugo_build.lock

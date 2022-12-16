@@ -1,4 +1,0 @@
----
-layout: src
-permalink: /src
----
