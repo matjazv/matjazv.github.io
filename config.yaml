@@ -1,5 +1,5 @@
-baseURL: https://matjazv.github.io
-languageCode: en-us
+baseURL: 'https://matjazv.github.io'
+languageCode: 'en-us'
 title: 'Matjaž Verbole'
 theme: 'mini'
 
